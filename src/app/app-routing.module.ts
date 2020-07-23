@@ -15,7 +15,6 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 
 const routes: Routes = [
-  // { path:'employees', component: EmployeeComponent},
   { path:'adduser', component: AddEmployeeComponent},
   { path: 'admin/users', component: UsersComponent, canActivate:[AuthGuardService] },
   { path: 'admin/plants', component: PlantsComponent, canActivate:[AuthGuardService] },

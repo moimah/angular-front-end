@@ -21,9 +21,6 @@ export class EmployeeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     this.httpClientService.getEmployees().subscribe(
-      response =>this.handleSuccessfulResponse(response),
-     );
   }
 
 handleSuccessfulResponse(response)
