@@ -1,0 +1,25 @@
+<div class="m-2">
+
+    <h3>{{plant.id == null ? 'Add' : 'Edit'}} Plant {{plant.name}}</h3>
+
+    <form>
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Plant name" [(ngModel)]="plant.name" name="name">
+
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="author" placeholder="description" name="description" [(ngModel)]="plant.description">
+
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="price" name="price" [(ngModel)]="plant.price">
+
+
+        <br>
+        <input type="file" (change)="onFileChanged($event)">
+        <img class="mt-2" [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+
+        <br>
+        <br>
+        <button type="button" class="btn btn-success" (click)="savePlant()">Save Plant</button>
+    </form>
+
+</div>

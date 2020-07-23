@@ -1,0 +1,52 @@
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Ecommerce</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li *ngIf="loginService.isUserLoggedIn()"><a class="nav-link" routerLink="/shop">Shop</a></li>
+                <li *ngIf="loginService.isUserAdmin()" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                 </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a routerLink="/orders" class="dropdown-item">Orders</a>
+                        <a routerLink="/admin/users" class="dropdown-item">Users</a>
+                        <a routerLink="/admin/plants" class="dropdown-item">Plants</a>
+                    </div>
+                </li>
+
+            </ul>
+            <div *ngIf="!loginService.isUserLoggedIn()" class="m-1">
+                <a routerLink="/adduser" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i> Sign Up</a>
+            </div>
+
+            <div *ngIf="!loginService.isUserLoggedIn()">
+                <a routerLink="/login" class="nav-link"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+            </div>
+
+            <!-- TRabajando aqui -->
+
+            <div *ngIf="loginService.isUserLoggedIn() && !loginService.isUserAdmin()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{shopingCartService.user.username}}
+            </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a routerLink="/orders" class="dropdown-item">orders</a>
+                </div>
+            </div>
+
+            <div *ngIf="loginService.isUserLoggedIn()">
+                <a routerLink="/logout" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+            </div>
+            <app-cart></app-cart>
+        </div>
+    </nav>
+
+
+
+</header>

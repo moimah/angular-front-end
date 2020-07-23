@@ -1,0 +1,29 @@
+<div class="m-2">
+
+    <h3>Plant Details</h3>
+
+    <img src="{{plant.retrievedImage}}" height="200" width="200">
+
+    <table class="mt-2 mb-2 table-striped">
+        <tr>
+            <td><b>Plant Id: </b></td>
+            <td>{{plant.id}}</td>
+        </tr>
+        <tr>
+            <td><b>Plant Name: </b></td>
+            <td>{{plant.name}}</td>
+        </tr>
+        <tr>
+            <td><b>Description: </b></td>
+            <td>{{plant.description}}</td>
+        </tr>
+        <tr>
+            <td><b>Price: </b></td>
+            <td>{{plant.price}}</td>
+        </tr>
+    </table>
+
+    <a class="btn btn-small btn-warning mr-2 text-white" style="width: 75px;" (click)="editPlant()">Edit</a>
+    <a class="btn btn-small btn-danger text-white" style="width: 75px;" (click)="deletePlant()">Delete</a>
+
+</div>

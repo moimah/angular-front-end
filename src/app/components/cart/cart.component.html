@@ -1,0 +1,42 @@
+<div class="btn bg-transparent dropleft">
+    <i data-toggle="dropdown" class="fa fa-shopping-cart fa-2x text-secondary" aria-hidden="true"> <span class="ml-2"> {{shopingCartService.numItemsInCart}}</span></i>
+
+    <div class="dropdown-menu">
+        <ul>
+            <li>
+                <div class="item product-cart-item row">
+                    <div class="col-1"></div>
+                    <div class="col-3"><strong>ITEM</strong></div>
+                    <div class="col"><strong>QTY</strong></div>
+                    <div class="col"><strong>PRICE</strong></div>
+                    <div class="col"><strong>TOTAL</strong></div>
+                </div>
+            </li>
+            <li *ngFor="let item of shopingCartService.details2">
+                <div class="item product-cart-item row">
+                    <div class="col-1"><a (click)="shopingCartService.deletePlant(item)"><i class="fa fa-window-close" aria-hidden="true"></i></a></div>
+                    <div class="col-3" *ngIf="item">{{item.plant.name}}</div>
+                    <div class="col" *ngIf="item">{{item.uds}}</div>
+                    <div class="col" *ngIf="item">{{(item.price).toFixed(2)}}€</div>
+                    <div class="col" *ngIf="item">{{(item.price * item.uds).toFixed(2)}}€</div>
+                </div>
+            </li>
+
+            <li>
+                <div class="item product-cart-item row">
+                    <div class="col-1"></div>
+                    <div class="col-3"><strong></strong></div>
+                    <div class="col"><strong></strong></div>
+                    <div class="col"><strong>TOTAL</strong></div>
+                    <div class="col"><strong>{{shopingCartService.calculateTotalToPay().toFixed(2)}}€</strong></div>
+                </div>
+            </li>
+            <hr>
+
+        </ul>
+        <div *ngIf="shopingCartService.numItemsInCart > 0" class="text-right mr-2">
+            <button (click)="checkOut()" type="button" class="btn btn-success mr-2">CheckOut</button>
+            <!-- <button (click)="shopingCartService.emptyCart()" type="button" class="btn btn-danger">Empty Cart</button> -->
+        </div>
+    </div>
+</div>

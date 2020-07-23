@@ -1,0 +1,56 @@
+.search {
+    width: 350px;
+}
+
+.price-filter {
+    width: 70px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.text-input {
+    background-color: white;
+    font-size: small;
+    color: blue;
+    font-weight: bold;
+    min-width: 45px;
+    height: 35px;
+    text-align: center;
+    max-width: 55px;
+    border-right: none;
+    border-left: none;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.custom-btn-add {
+    width: 125px;
+}
+
+.custom-btn-minus:hover {
+    background-color: #a11d2a;
+}
+
+.custom-btn-minus {
+    background-color: #dc3546;
+    height: 35px;
+    width: 35px;
+}
+
+.custom-btn-plus:hover {
+    background-color: #19692c;
+}
+
+.custom-btn-plus {
+    background-color: #28a746;
+    height: 35px;
+    width: 35px;
+}

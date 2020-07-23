@@ -1,0 +1,38 @@
+<h1 class="text-center">Plants Admin</h1>
+<div class="container d-flex justify-content-center">
+    <app-loader *ngIf="loading"></app-loader>
+</div>
+<div class="container" *ngIf="!loading">
+
+    <a class="btn btn-primary text-white m-3" (click)="addPlant()">Add New Plant</a>
+
+    <div class="container row">
+
+        <div class="col-md-6">
+            <table class="table  table-striped">
+                <thead class="">
+                    <tr>
+                        <th>ID</th>
+                        <th>Plant Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let plant of plants">
+                        <td>{{plant.id}}</td>
+                        <td>{{plant.name}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" (click)="viewPlant(plant.id)">Show Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <!-- View plant Details/Add plant -->
+
+            <app-viewplant *ngIf="action === 'view'" [plant]="selectedPlant" (plantDeletedEvent)="refreshData()"></app-viewplant>
+            <app-addplant *ngIf="action === 'edit' || action === 'add'" [plant]="selectedPlant" (plantAddedEvent)="refreshData()"></app-addplant>
+        </div>
+    </div>
+</div>

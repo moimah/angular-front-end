@@ -1,0 +1,43 @@
+<h3 class="text-center mt-3">Orders</h3>
+<div class="row d-flex justify-content-center">
+
+    <div class="container mt-3" *ngFor="let item of deliveries">
+
+        <div class="row">
+            <div class="col-75">
+                <div>
+                    <div><b>Order: #{{item.id}}</b></div>
+                    <div>{{item.order.orderDate}}</div>
+                    <div>{{item.name}}</div>
+                    <div>{{item.address}} {{item.city}}</div>
+                    <div>{{item.state}}, {{item.zip}}</div>
+                </div>
+
+                <div>
+                    <div><b>Status:</b> {{item.order.status}}</div>
+                </div>
+                <button *ngIf="user.type == 'administrator'" (click)="editStatus(item.order)" type="button" class="btn">Edit status</button>
+            </div>
+
+
+            <div class="col-25">
+                <div class="container">
+                    <h4>Details
+                        <span class="price" style="color:black">
+                            <b class= ml-1>{{fillWrapperCalculator(item.order)[1]}}</b>
+                        </span>
+                    </h4>
+                    <p *ngFor="let detail of fillWrapperCalculator(item.order)[0]">
+                        <a class="text-primary">{{detail.plant.name}}  x  {{detail.uds}}</a>
+                        <span class="price">{{(detail.price * detail.uds).toFixed(2)}}€</span>
+                    </p>
+
+                    <hr>
+                    <p>Total <span class="price" style="color:black"><b>{{fillWrapperCalculator(item.order)[2]}}€</b></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
